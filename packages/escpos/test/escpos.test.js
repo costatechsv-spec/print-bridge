@@ -100,6 +100,9 @@ test('wrap keeps lines within the width', () => {
   assert.deepEqual(wrap('abcdefghij', 4), ['abcd', 'efgh', 'ij']);
   assert.deepEqual(wrap('uno\n\ndos', 10), ['uno', '', 'dos']);
   assert.deepEqual(wrap('2x Hamburguesa con queso', 14, 3), ['2x Hamburguesa', '   con queso']);
+  // Leading spaces are layout: kept on the first line.
+  assert.deepEqual(wrap('   » sin cebolla', 20), ['   » sin cebolla']);
+  assert.deepEqual(wrap('   » sin cebolla ni tomate', 16, 5), ['   » sin cebolla', '     ni tomate']);
 });
 
 test('double width halves the columns text wraps at', () => {

@@ -5,15 +5,23 @@ backend. A small program at each location (the bridge) asks the backend for
 print jobs, sends their bytes to the right printer, and reports back. The
 backend needs no access to the local network.
 
-Status: work in progress.
+Status: work in progress. Bridge and contract ready to try; first backend in progress.
 
 | Part | Where | Status |
 |---|---|---|
-| ESC/POS library | [`packages/escpos`](packages/escpos) | Ready (0.1.0) |
+| Print job contract (what a backend implements) | [`CONTRACT.md`](CONTRACT.md) | v1 |
+| Bridge (the program at each location) | [`packages/bridge`](packages/bridge) | 0.1.0 |
+| ESC/POS library | [`packages/escpos`](packages/escpos) | 0.1.1 |
 | Printer test sheet | [`tools/print-test.js`](tools/print-test.js) | Ready |
-| Print job contract | `CONTRACT.md` | Next |
-| Bridge | `packages/bridge` | Next |
-| Fake printer for testing | `tools/fake-printer.js` | Next |
+| Fake printer: tickets as a web page | [`tools/fake-printer.js`](tools/fake-printer.js) | Ready |
+| Mock backend, also the contract's reference | [`tools/mock-server.js`](tools/mock-server.js) | Ready |
+
+```
+backend (any)  <--- HTTPS poll / result ---  bridge  --- TCP 9100 --->  printers
+                    (outgoing only)          (at the location)
+```
+
+To try everything on one computer, see [packages/bridge](packages/bridge#trying-it-without-a-printer-or-backend).
 
 ## Setting up a new printer
 

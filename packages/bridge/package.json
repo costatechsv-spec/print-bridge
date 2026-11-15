@@ -1,0 +1,23 @@
+{
+  "name": "@costatechsv-spec/print-bridge",
+  "version": "0.1.0",
+  "description": "Polls a backend for print jobs and sends them to network printers (raw TCP 9100). See CONTRACT.md.",
+  "license": "MIT",
+  "main": "src/index.js",
+  "bin": {
+    "print-bridge": "bin/print-bridge.js"
+  },
+  "files": ["src", "bin", "config.example.json", "README.md", "LICENSE"],
+  "scripts": {
+    "start": "node bin/print-bridge.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/costatechsv-spec/print-bridge.git",
+    "directory": "packages/bridge"
+  }
+}

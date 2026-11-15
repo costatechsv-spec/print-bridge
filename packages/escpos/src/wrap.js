@@ -1,9 +1,10 @@
 'use strict';
 
 // Splits text into lines of at most `width` characters, breaking at spaces
-// and cutting words longer than a line. Existing line breaks are kept.
-// Continuation lines start with `indent` spaces, so a wrapped item lines up
-// under its own text ("2x Hamburguesa con..." / "   queso").
+// and cutting words longer than a line. Existing line breaks and a line's
+// leading spaces are kept. Continuation lines start with `indent` spaces, so
+// a wrapped item lines up under its own text ("2x Hamburguesa con..." /
+// "   queso").
 function wrap(text, width, indent = 0) {
   if (!Number.isInteger(width) || width < 1) throw new Error(`Width must be at least 1, got ${width}`);
   const pad = ' '.repeat(Math.min(Math.max(indent, 0), width - 1));
@@ -14,7 +15,7 @@ function wrap(text, width, indent = 0) {
       lines.push('');
       continue;
     }
-    let line = '';
+    let line = ' '.repeat(Math.min(paragraph.length - paragraph.trimStart().length, width - 1));
     let empty = true;
     for (let word of words) {
       if (!empty && line.length + 1 + word.length <= width) {

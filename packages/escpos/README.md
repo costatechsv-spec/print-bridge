@@ -54,7 +54,7 @@ prints a table correctly, then pass it as `codeTableNumber`.
 Not on npm yet. Install a tagged release from GitHub:
 
 ```sh
-npm install https://github.com/costatechsv-spec/print-bridge/releases/download/escpos-v0.1.0/costatechsv-spec-escpos-0.1.0.tgz
+npm install https://github.com/costatechsv-spec/print-bridge/releases/download/escpos-v0.1.1/costatechsv-spec-escpos-0.1.1.tgz
 ```
 
 ## License
