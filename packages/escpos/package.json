@@ -1,0 +1,21 @@
+{
+  "name": "@costatechsv-spec/escpos",
+  "version": "0.1.0",
+  "description": "Small, dependency-free ESC/POS builder for receipt and kitchen printers: text styles, wrapping, code tables, cut.",
+  "license": "MIT",
+  "main": "src/index.js",
+  "types": "index.d.ts",
+  "files": ["src", "index.d.ts", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/costatechsv-spec/print-bridge.git",
+    "directory": "packages/escpos"
+  },
+  "keywords": ["escpos", "esc/pos", "thermal", "receipt", "printer"]
+}

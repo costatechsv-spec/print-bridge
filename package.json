@@ -1,0 +1,13 @@
+{
+  "name": "print-bridge",
+  "private": true,
+  "license": "MIT",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "test": "npm test --workspaces",
+    "print-test": "node tools/print-test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
