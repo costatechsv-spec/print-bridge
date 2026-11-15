@@ -122,9 +122,18 @@ function ticketHtml(bytes, tables) {
       const spans = l.segments
         .map((s) => {
           const style = [];
-          if (s.h !== 1) style.push(`font-size:${s.h}em`);
-          // Monospace characters are about 0.6em wide; stretch for double width.
-          if (s.w !== s.h) style.push(`letter-spacing:${((0.6 * (s.w - s.h)) / s.h).toFixed(2)}em`);
+          // Width sets the font size (each character takes w columns);
+          // a different height stretches it vertically.
+          if (s.w !== 1) style.push(`font-size:${s.w}em`);
+          if (s.h !== s.w) {
+            const stretch = s.h / s.w;
+            style.push(
+              'display:inline-block',
+              `transform:scaleY(${stretch})`,
+              'transform-origin:bottom left',
+              `margin-top:${((stretch - 1) * 1.25).toFixed(2)}em`,
+            );
+          }
           if (s.bold) style.push('font-weight:700');
           if (s.underline) style.push('text-decoration:underline');
           return `<span style="${style.join(';')}">${escapeHtml(s.text)}</span>`;
